@@ -43,8 +43,6 @@ void Test::Algorithm_Test()
   {
     if(!readByte->empty())
     {
-      cout << "serial received:" << endl;
-
       while(!readByte->empty())
       {
         int readBytefront = (int)readByte->front();
