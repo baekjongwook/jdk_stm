@@ -126,11 +126,12 @@ void StmPacketTranslator::readPacket(uint8_t byte)
   case CRC2:
   {
     buffer[state] = byte;
-    state = H1;
 
     bufferCRC = update_crc(0, buffer, state-1);
     packetCRC = combineByte(buffer[CRC2-1], buffer[CRC2]);
 
+    state = H1;
+	  
     if(packetCRC == bufferCRC)
     {
       parsing(buffer);
